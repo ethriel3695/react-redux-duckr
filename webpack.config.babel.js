@@ -37,12 +37,12 @@ const base = {
         rules: [
             {test: /\.js$/, exclude: /node_modules/, use: 'babel-loader'},
             {test: /\.css$/, 
-                use: 'style!css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]'}
+                use: ['style-loader']}
         ]
     },
-    resolve: {
-        modules: [path.resolve('./app')]
-    }
+    // resolve: {
+    //     modules: [path.resolve('./app/')]
+    // }
 }
 
 const developmentConfig = {
