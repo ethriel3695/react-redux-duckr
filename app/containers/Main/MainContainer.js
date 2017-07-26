@@ -4,7 +4,9 @@ class MainContainer extends React.Component {
 
   render () {
     return (
-      <p>{'Hello World!'}</p>
+      <div>
+        {this.props.children}
+      </div>
     )
   }
 }

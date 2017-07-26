@@ -29,7 +29,7 @@ const base = {
     entry: [
         PATHS.app,
     ],
-    output: {
+    output: { 
         path: PATHS.build,
         filename: 'index_bundle.js'
     },
@@ -37,12 +37,14 @@ const base = {
         rules: [
             {test: /\.js$/, exclude: /node_modules/, use: 'babel-loader'},
             {test: /\.css$/, 
-                use: ['style-loader']}
+                use: ['style-loader', 
+                `css-loader?sourceMap&modules&importLoaders=1&
+                localIdentName=[path]___[name]__[local]___[hash:base64:5]`]}
         ]
     },
-    // resolve: {
-    //     modules: [path.resolve('./app/')]
-    // }
+    resolve: {
+        modules: [path.resolve(__dirname, './app/'), 'node_modules']
+    }
 }
 
 const developmentConfig = {
